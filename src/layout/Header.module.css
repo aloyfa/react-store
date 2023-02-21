@@ -1,0 +1,38 @@
+.main {
+  -webkit-box-shadow: 0 4px 6px -6px #222;
+  -moz-box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 4px 6px -6px #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:10px
+}
+nav{
+  display: flex;
+}
+p{
+  padding-left:20px;
+  text-decoration: none;
+  color:inherit;
+  font-size: 20px;
+}
+.brand-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+  margin: 10px;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}
+
+svg {
+  font-size: 40px;
+  margin: 5px;
+}
