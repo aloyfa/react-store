@@ -1,15 +1,17 @@
 import ProductItem from '../components/ProductItem';
 import styles from './Products.module.css';
 import { useLoaderData } from 'react-router-dom';
+import FavMessage from '../components/FavMessage';
 
 const Products = () => {
   const products = useLoaderData();
   
   return (
     <>
+      <FavMessage/>
       <div className={styles.products}>
         {products.map((item) => (
-          <ProductItem key={item.id} item={item} />
+          <ProductItem key={item.id} item={item}/>
         ))}
       </div>
     </>

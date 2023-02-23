@@ -1,11 +1,13 @@
 import CodeStoreLogo from "../assets/00609_Polygon_design_free_logos_online-05.png";
 // import styles from "./Header.module.css";
-import { Navbar, Nav,Container, NavDropdown} from "react-bootstrap";
+import { Navbar, Nav,Container } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const wishListNumber = useSelector(state => state.fav.favList.length)
   return (
     <Navbar bg="light" expand="xl">
       <Container fluid>
@@ -27,8 +29,9 @@ const Header = () => {
           >
             <LinkContainer to=''><Nav.Link>Home</Nav.Link></LinkContainer>
             <LinkContainer to='products'><Nav.Link>Products</Nav.Link></LinkContainer>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+            <LinkContainer to='wishlist'><Nav.Link>Wishlist({wishListNumber})</Nav.Link></LinkContainer>
+
+            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action4">
                 Another action
               </NavDropdown.Item>
@@ -39,7 +42,7 @@ const Header = () => {
             </NavDropdown>
             <Nav.Link href="#" disabled>
               Link
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <Form className="d-flex">
             <Form.Control
