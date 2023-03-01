@@ -1,14 +1,21 @@
 import { Button } from "react-bootstrap";
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {FaMoneyBillWave} from 'react-icons/fa'
+import { useDispatch } from "react-redux";
+import { cartActions } from "../app/slices/cartSlice";
 
-const ActionButtons = () => {
+const ActionButtons = (props) => {
+  const dispatch = useDispatch()
+
+  const addToCartHandler = (e) => {
+    dispatch(cartActions.addToCart(e))
+  }
   return (
     <>
-      <Button className='m-1' variant='warning' >
+      <Button className={props.margin} variant='warning' onClick={()=>addToCartHandler(props.e)} >
         Add to Cart <AiOutlineShoppingCart size={20} />
       </Button>
-      <Button className='m-1' >
+      <Button className={props.margin} >
         Buy Now <FaMoneyBillWave size={20} />
       </Button>
     </>

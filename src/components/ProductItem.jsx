@@ -1,35 +1,34 @@
 import styles from './ProductItem.module.css';
-import { AiFillStar } from 'react-icons/ai';
 import Card from 'react-bootstrap/Card';
 import Heart from './Heart';
 import { useNavigate } from 'react-router-dom';
 import ActionButtons from './ActionButtons';
+import Rating from './Rating';
 
-const ProductItem = (props) => {
-  const e = props.item;
+const ProductItem = ({ item }) => {
+  const e = item;
+
   const navigate = useNavigate();
+
   return (
     <>
       <Card className={styles.card}>
         <Card.Img
           className={styles['card-img-top']}
           src={e.image}
-          onClick={() => {
-            navigate(e.id.toString());
-          }}
+          onClick={() => navigate(e.id.toString())}
         />
         <Card.Body>
           <Card.Title className=" text-truncate ">{e.title}</Card.Title>
           <div className="btn-wrapper d-flex justify-content-between">
-            <Card.Text>€{e.price.toFixed(2)} </Card.Text>
+            <Card.Text>€{e.price.toFixed(2)}</Card.Text>
             <Card.Text>
-              <AiFillStar />
-              {e.rating.rate} ({e.rating.count})
+              <Rating detail={e.rating} />
             </Card.Text>
-            <Heart e={e} />
+            <Heart e={e}/>
           </div>
           <div className="btn-wrapper d-flex justify-content-between">
-            <ActionButtons/>
+            <ActionButtons e={e} />
           </div>
         </Card.Body>
       </Card>

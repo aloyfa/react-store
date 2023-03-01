@@ -5,8 +5,11 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector } from "react-redux";
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  const {totalCount} = useSelector(state=> state.cart)
   const wishListNumber = useSelector(state => state.fav.favList.length)
   return (
     <Navbar bg="light" expand="xl">
@@ -44,7 +47,8 @@ const Header = () => {
               Link
             </Nav.Link> */}
           </Nav>
-          <Form className="d-flex">
+            <NavLink to='/cart'><AiOutlineShoppingCart size={30} color='black'/>({totalCount})</NavLink>
+          <Form className="d-flex ms-4">
             <Form.Control
               type="search"
               placeholder="Search"

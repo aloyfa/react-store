@@ -4,6 +4,7 @@ import Layout from './layout/Layout';
 import HomePage from './pages/HomePage';
 import Wishlist from './pages/Wishlist';
 import Details, { loader as detailsLoader } from './pages/Details';
+import Cart from './pages/Cart';
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
           path: 'products/:id',
           loader: detailsLoader,
           element: <Details />,
+        },
+        {
+          path: 'cart',
+          element: <Cart />,
         },
       ],
     },

@@ -1,4 +1,4 @@
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { favActions } from '../app/slices/favSlice';
 import { favModalActions } from '../app/slices/favModalSlice';
@@ -16,32 +16,15 @@ const Heart = ({ e }) => {
 
   return (
     <>
-      {e.isLove ? (
-        <AiFillHeart
-          size={30}
-          color={'red'}
-          onClick={() => {
-            markFavHandler(e);
-          }}
-        />
-      ) : (
-        <AiOutlineHeart
-          size={30}
-          onClick={() => {
-            markFavHandler(e);
-          }}
-        />
-      )}
+      <AiFillHeart
+        size={30}
+        color={'red'}
+        onClick={() => {
+          markFavHandler(e);
+        }}
+      />
     </>
   );
 };
 
 export default Heart;
-
-// const query = favList.find(e => e.id === '1')
-// favList.find(e => e.id === favList.id)
-
-// setFav(!fav);
-// !fav ? alert('ADDED TO FAVORITES') : alert('DELETED FROM FAVORITES');
-// console.log(title);
-// console.log(isFav)

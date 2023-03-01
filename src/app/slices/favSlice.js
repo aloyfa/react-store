@@ -1,27 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const favInitialState = {favList:[]};
+const initialState = { favList: [] };
 
 const favSlice = createSlice({
   name: 'fav',
-  initialState: favInitialState,
+  initialState,
   reducers: {
     addFav(state, action) {
-      // if(state.favList.includes(action.payload)){return}
-      action.payload.isLove = true
-      state.favList.push(action.payload)
+      // action.payload.isLove = true;
+      state.favList.push(action.payload);
+    },
+    deleteFav(state, action) {
+      const foundItem = state.favList.find(
+        (item) => item.title === action.payload
+      );
+
+      if (foundItem) {
+        state.favList.splice(state.favList.indexOf(foundItem), 1);
       }
     },
-    deleteFav(state,action){
-      
-    }
   },
-  // markFav(state,action){
-  //   const favList = state.find(action,i => action.payload.id === state[i].id)
-  //   return favList.length === 0
-
-  // }
-);
+});
 
 export const favActions = favSlice.actions;
 export default favSlice.reducer;
