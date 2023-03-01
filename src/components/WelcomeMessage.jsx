@@ -9,12 +9,12 @@ const Message = () => {
     dispatch(showActions.hideMessage());
   };
   return (
-    <Modal show>
-      <Modal.Header closeButton={hideMessage}>
-        <Modal.Title>Checking Redux</Modal.Title>
+    <Modal show onHide={hideMessage}>
+      <Modal.Header closeButton>
+        <Modal.Title>Welcome to CodeStore</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        This modal is to check if REDUX is working properly
+      Welcome to this demo Page, this is a personal project I developed to put in practice some of the most used libraries aplied to React. Hope you Enjoy!
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={hideMessage} variant="secondary">

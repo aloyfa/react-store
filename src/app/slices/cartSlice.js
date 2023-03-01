@@ -11,7 +11,12 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      action.payload.quantity = 1;
+      // if(action.payload === state.cartList.map(item => item)){
+      //   alert('esta huevada ya esta en la lista')
+      //   action.payload.quantity++
+        
+      // }
+      action.payload.quantity = 1
       state.cartList.push(action.payload);
       state.totalCount++;
     },

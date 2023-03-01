@@ -2,13 +2,15 @@ import ProductItem from '../components/ProductItem';
 import styles from './Products.module.css';
 import { useLoaderData } from 'react-router-dom';
 import FavMessage from '../components/FavMessage';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import CartMessage from '../components/CartMessage';
 
 const Products = () => {
-  const favList = useSelector(state => state.fav.favList)
   const products = useLoaderData();
+
   return (
     <>
+      <CartMessage/>
       <FavMessage/>
       <div className={styles.products}>
         {products.map((item) => (

@@ -1,14 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { favList: [] };
+const initialState = { 
+  favList: [],
+  favQuantity: 0
+ };
 
 const favSlice = createSlice({
   name: 'fav',
   initialState,
   reducers: {
     addFav(state, action) {
-      // action.payload.isLove = true;
       state.favList.push(action.payload);
+      state.favQuantity++
+      console.log(state.favQuantity++)
     },
     deleteFav(state, action) {
       const foundItem = state.favList.find(
